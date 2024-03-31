@@ -9,12 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GET = void 0;
+exports.GET = exports.runtime = void 0;
 const server_1 = require("next/server");
+exports.runtime = "edge";
 function GET(req) {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log("hi");
-        return server_1.NextResponse.json("hey");
+        return server_1.NextResponse.json("...");
     });
 }
 exports.GET = GET;

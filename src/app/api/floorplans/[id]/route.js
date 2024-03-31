@@ -9,11 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GET = exports.config = void 0;
+exports.GET = exports.runtime = void 0;
 const server_1 = require("next/server");
-exports.config = {
-    runtime: "edge",
-};
+exports.runtime = "edge";
 function GET(req, { params }) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
