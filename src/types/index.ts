@@ -19,6 +19,9 @@ export interface InventoryResponse {
   floorplan_id: number | null;
   floorplan: FloorPlanResponse | null;
   interested_count: number;
+  monthly_cc: AdditionalField | null;
+  monthly_re: AdditionalField | null;
+  display_on_web: AdditionalField | null;
   kind: string;
   lease: boolean;
   leasing_term: string;
@@ -60,4 +63,32 @@ export interface FloorPlanResponse {
   project_id: number;
   purchased_count: number;
   updated_at: Date;
+}
+
+export interface AdditionalFieldsResponse {
+  id: number;
+  additional_fields: AdditionalField[];
+  created_at: Date;
+  field_type: string;
+  name: string;
+  position: number;
+  project_id: number;
+  type: string;
+  updated_at: Date;
+}
+
+export interface AdditionalField {
+  id: number;
+  brokerage_id: string | null;
+  contact_id: string | null;
+  contract_id: string | null;
+  created_at: Date;
+  inventory_id: number;
+  name: string;
+  position: string | null;
+  project_id: number;
+  standardized_field_id: number;
+  team_member_id: string | null;
+  updated_at: Date;
+  value: string;
 }
