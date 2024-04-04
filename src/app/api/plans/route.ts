@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
   try {
     const monthlyCC = await getMonthlyCC();
     const monthlyRE = await getMonthlyRE();
-    const res = await fetch(`${process.env.BASE_URL}/inventory`, {
+    const res = await fetch(`${process.env.BASE_URL}/inventory?per_page=100`, {
       headers: {
         Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
         "Content-Type": "application/json",
