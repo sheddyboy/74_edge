@@ -6,7 +6,7 @@ import {
 import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "edge";
-export const revalidate = 86400;
+export const revalidate = 43200;
 
 export async function GET(req: NextRequest) {
   try {
