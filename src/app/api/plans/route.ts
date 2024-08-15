@@ -12,6 +12,7 @@ export async function GET(req: NextRequest) {
   try {
     const monthlyCC = await getMonthlyCC();
     const monthlyRE = await getMonthlyRE();
+    const displayOnWeb = await getDisplayOnWeb();
     const res = await fetch(`${process.env.BASE_URL}/inventory?per_page=100`, {
       headers: {
         Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
@@ -59,6 +60,17 @@ export async function GET(req: NextRequest) {
             item.monthly_re = null;
           }
           return hasMonthlyRE;
+        });
+      }
+      if (displayOnWeb.data) {
+        displayOnWeb.data.some((displayOnWeb) => {
+          const hasDisplayOnWeb = displayOnWeb.inventory_id === item.id;
+          if (hasDisplayOnWeb) {
+            item.display_on_web = displayOnWeb;
+          } else {
+            item.display_on_web = null;
+          }
+          return hasDisplayOnWeb;
         });
       }
     }
